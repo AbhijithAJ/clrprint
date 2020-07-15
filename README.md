@@ -41,6 +41,10 @@ Example:
     clrprint('text1','text2',clr='red') 
     clrinput('text1',clr='r')  # single letter is enough to represent color.
 
+## Screenshots
+
+![clrprint](https://github.com/AbhijithAJ/clrprint/screenshot.png "clrprint")
+
 
 ### Example Code
 ```python
