@@ -43,7 +43,7 @@ Example:
 
 ## Screenshots
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/screenshot.png "clrprint")
+![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot.png "clrprint")
 
 
 ### Example Code
