@@ -42,8 +42,14 @@ Example:
     clrinput('text1',clr='r')  # single letter is enough to represent color.
 
 ## Screenshots
+Terminal:
 
 ![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot.png "clrprint")
+
+IDLE:
+
+![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png "clrprint")
+
 
 
 ### Example Code
