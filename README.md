@@ -12,7 +12,7 @@
  - Colorful output 
  - Work's on IDLE, windows powerShell, Linux terminal
  - Simply input() and print() with clrinput() and clrprint()
- - Basic colors only red, green, yellow, blue, purple, and black/white (default)
+ - Basic colors only. red, green, yellow, blue, purple, and black/white (default)
 
 ---
 ## ABOUT
