@@ -48,7 +48,7 @@ Terminal:
 
 IDLE:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png "clrprint")
+![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/creenshot_idle.png "clrprint")
 
 Powershell:
 
