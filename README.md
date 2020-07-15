@@ -50,6 +50,10 @@ IDLE:
 
 ![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png "clrprint")
 
+Powershell:
+
+![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_powershell.png "clrprint")
+
 
 
 ### Example Code
