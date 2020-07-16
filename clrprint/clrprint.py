@@ -1,6 +1,6 @@
 import sys     
 if sys.platform == 'win32':
-    from colorama import init # for windows
+    from colorama import init # for windows powershell and cmd
     init()
 from termcolor import cprint  # for terminal
 
