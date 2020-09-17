@@ -44,15 +44,15 @@ Example:
 ## Screenshots
 Terminal:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot.png "clrprint")
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/screenshot.png" width="55%">
 
 IDLE:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png "clrprint")
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png" width="55%">
 
 Powershell:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_powershell.png "clrprint")
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_powershell.png" width="55%">
 
 
 
@@ -72,7 +72,7 @@ clrhelp()  # to list out usage and available colors.
 ```
 
 <br>
-<a href="https://www.buymeacoffee.com/abhijithboppe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+<a href="https://www.buymeacoffee.com/abhijithboppe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" width="55%"></a>
 
 ---
 ## License & copyright
