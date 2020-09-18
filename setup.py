@@ -1,7 +1,8 @@
 # https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56
 """Setup for the clrprint package."""
 
-from distutils.core import setup
+#from distutils.core import setup
+from setuptools import setup, Extension
 
 with open('README.md','r') as f:
     README = f.read()
