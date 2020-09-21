@@ -44,15 +44,15 @@ Example:
 ## Screenshots
 Terminal:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/screenshot.png" width="55%">
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/terminal.png" width="55%">
 
 IDLE:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png" width="55%">
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/idle.png" width="55%">
 
 Powershell:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_powershell.png" width="55%">
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/powershell.png" width="55%">
 
 
 
