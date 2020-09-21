@@ -19,7 +19,7 @@ setup(
     keywords=['basic colors', 'color print', 'cmd', 'color idle', 'color terminal',
               'color powershell', 'color idle and terminal', 'color idle, cmd, powershell'],
     url='https://github.com/AbhijithAJ/clrprint',
-    download_url='https://github.com/AbhijithAJ/clrprint/archive/v1.0.tar.gz',
+    download_url='https://github.com/AbhijithAJ/clrprint/archive/V1.0.tar.gz',
     packages=['clrprint'],
     python_requires=">=3.2",
     install_requires=['termcolor', 'colorama'],
