@@ -13,7 +13,7 @@ try:
             "green": ("STRING", "Green"),
             "blue": ("stdout", "Blue"),
             "purple": ("BUILTIN", "Purple"),   #magenta
-            "megenta":("BUILTIN", "Purple"),
+            "magenta":("BUILTIN", "Purple"),
             "default": ("SYNC", "Black")}
     
     def myclrtxt(text,clr,end='\n'):
@@ -27,7 +27,7 @@ except AttributeError:
             "blue": "blue",
             "purple": "magenta",
             "default": "white",
-            "megenta":"megenta"}
+            "magenta":"magenta"}
 
     def myclrtxt(text,clr,end='\n'):
         cprint(text, colormap[clr], attrs=['bold'], file=sys.stderr,end=end)
@@ -67,9 +67,11 @@ def clrhelp() -> None:
     '''
     print available colors
     '''
+    clrprint("Colors available:",clr='default')
     for clr in colormap:
-        clrprint(clr,clr=clr)
-    clrprint("\nColors are available",clr='default')
+        clrprint('\t',clr,clr=clr)
+
+    clrprint("How to use: ",clr='g')
     usage ='''
     It is as simple as using 'print' and 'input' functions with an 
     additional parameter 'clr'. single letter is enough to represent 
@@ -80,8 +82,11 @@ def clrhelp() -> None:
     and pass your color with text
     '''.format()
     clrprint(usage,clr='yellow')
-    clrprint("Ex: clrprint('your text',clr='green')",clr='g')
-    clrprint("Ex: clrinput('your text',clr='g')",clr='g')
+    clrprint('Examples:')
+    clrprint("\tclrprint('your text',clr='green')",clr='g')
+    clrprint("\tclrinput('your text',clr='g')",clr='g')
+    clrprint("\n\tPrint","Multi","colors","in","single","line with:",clr=['r','y','g','b'])
+    clrprint("\t\tEx: clrprint('tex_clr1','tex_clr2',clr=['r','g'])",clr='g')
 
     
 def clrprint(*text, clr="default", end:str="\n",sep:str=' ') -> None:
@@ -106,7 +111,7 @@ def clrprint(*text, clr="default", end:str="\n",sep:str=' ') -> None:
         text = sep.join(text)          
         myclrtxt(text, clr, end)
     else:
-        print(end=end)
+        myclrtxt('',clr=clr,end=end)
 
 def clrinput(text, clr="default") -> None:
     '''
