@@ -13,19 +13,21 @@ try:
             "green": ("STRING", "Green"),
             "blue": ("stdout", "Blue"),
             "purple": ("BUILTIN", "Purple"),   #magenta
+            "megenta":("BUILTIN", "Purple"),
             "default": ("SYNC", "Black")}
     
     def myclrtxt(text,clr,end='\n'):
         shell_connect.write(text+end, colormap[clr][0])
 
 except AttributeError:
-    # This will only work linux teminal,win powershell, cmd
+    # This will only work linux terminal,win powershell, cmd
     colormap = {"red":"red",
             "yellow": "yellow",
             "green": "green",
             "blue": "blue",
             "purple": "magenta",
-            "default": "white"}
+            "default": "white",
+            "megenta":"megenta"}
 
     def myclrtxt(text,clr,end='\n'):
         cprint(text, colormap[clr], attrs=['bold'], file=sys.stderr,end=end)
@@ -33,10 +35,25 @@ except AttributeError:
 except Exception as a:
 	clrprint(a,clr='r')
 
+def chkDatatypes(clr,sep,end):
+    if not isinstance(sep,str):
+        raise Exception('sep must be string')
+    if not isinstance(end,str):
+        raise Exception('end must be a string')
+    def chkDatatypeOfClr(clr):
+        for el in clr:
+            if not isinstance(el,str):
+                raise Exception('list must be contain only string type elements')
+    if isinstance(clr,list):
+        chkDatatypeOfClr(clr)
+    elif not isinstance(clr,str):
+        raise Exception("clr must be string or list with string elements")
+
 def chk_clr(clr):
     '''
-    chek if given clr or 1st char is available 
+    check if given clr or 1st char is available 
     '''
+    clr = clr.strip().lower()
     clr = clr if clr in colormap.keys() else clr[0]            # if not available/spelled wrong take 1st char of clr
     if len(clr) == 1:           
         clrs = [clrs[0] for clrs in colormap.keys()]           # get 1st chars of colors available in colormap
@@ -46,7 +63,7 @@ def chk_clr(clr):
             clr ="default"                                     # else default color
     return clr
 
-def clrhelp():
+def clrhelp() -> None:
     '''
     print available colors
     '''
@@ -67,16 +84,31 @@ def clrhelp():
     clrprint("Ex: clrinput('your text',clr='g')",clr='g')
 
     
-def clrprint(*text, clr="default", end="\n",sep=' '):
+def clrprint(*text, clr="default", end:str="\n",sep:str=' ') -> None:
     '''
-    take text and print with given color
+    take *text and print with given color/s
+    'clr' can be str or a list with str elements.
     '''
-    text = tuple([str(elem)for elem in text]) # convert all elements in text(type-tuple) to string 
-    text = sep.join(text)
-    clr = chk_clr(clr.strip().lower())
-    myclrtxt(text,clr,end)
+    chkDatatypes(clr,end,sep)
+    text = list(text)  # convert tuple to list to pop(0)
+    if isinstance(clr,list):
+        for clr in (clr):
+            try:
+                clr = chk_clr(clr)
+                txt = str(text.pop(0))+sep 
+                txt = txt if text else txt.rstrip(sep)
+                myclrtxt(txt, clr, end='')
+            except Exception as n:
+                break
+    if text:
+        clr = chk_clr(clr)
+        text = [str(elem)for elem in text] # convert all elements in text(type-tuple) to string 
+        text = sep.join(text)          
+        myclrtxt(text, clr, end)
+    else:
+        print(end=end)
 
-def clrinput(text, clr="default"):
+def clrinput(text, clr="default") -> None:
     '''
     take text and print with given color 
     and also take input
