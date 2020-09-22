@@ -40,6 +40,8 @@ Example:
 
     clrprint('text1','text2',clr='red') 
     clrinput('text1',clr='r')  # single letter is enough to represent color.
+    clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4',clr=['r','y','g']) # prints 3 colors in same line
+    clrprint('ERROR:','error information','suggestions 1','suggestion2','suggestion3', clr=['r','y','g']) # print
 
 ## Screenshots
 Terminal:
