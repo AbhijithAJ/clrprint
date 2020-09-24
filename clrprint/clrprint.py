@@ -70,7 +70,7 @@ def clrhelp() -> None:
     clrprint("Colors available:",clr='default')
     for clr in colormap:
         clrprint('\t',clr,clr=clr)
-
+    DEBUG = True
     clrprint("How to use: ",clr='g')
     usage ='''
     It is as simple as using 'print' and 'input' functions with an 
@@ -87,8 +87,12 @@ def clrhelp() -> None:
     clrprint("\tclrinput('your text',clr='g')",clr='g')
     clrprint("\n\tPrint","Multi","colors","in","single","line with:",clr=['r','y','g','b'])
     clrprint("\t\tEx: clrprint('tex_clr1','tex_clr2',clr=['r','g'])",clr='g')
+    clrprint("\n\tPrint output only when debuging with debug param: ",clr='b')
+    clrprint("\t\tEx: clrprint('Error: ',clr='y',debug=True)",clr='g',debug=DEBUG) 
+    clrprint('\n\tTake user input on debug else take default value: ',clr='b') 
+    clrprint("\t\tEx: num = clrinput('Num: ',clr='y',debug=True) or default ",clr='g',debug=DEBUG) 
 
-    
+
 def clrprint(*text, clr="default", end:str="\n",sep:str=' ',debug=True) -> None:
     '''
     take *text and print with given color/s
