@@ -89,11 +89,14 @@ def clrhelp() -> None:
     clrprint("\t\tEx: clrprint('tex_clr1','tex_clr2',clr=['r','g'])",clr='g')
 
     
-def clrprint(*text, clr="default", end:str="\n",sep:str=' ') -> None:
+def clrprint(*text, clr="default", end:str="\n",sep:str=' ',debug=True) -> None:
     '''
     take *text and print with given color/s
     'clr' can be str or a list with str elements.
+    Prints outpu only when debug is True
     '''
+    if debug != True:
+        return
     chkDatatypes(clr,end,sep)
     text = list(text)  # convert tuple to list to pop(0)
     if isinstance(clr,list):
@@ -113,11 +116,15 @@ def clrprint(*text, clr="default", end:str="\n",sep:str=' ') -> None:
     else:
         myclrtxt('',clr=clr,end=end)
 
-def clrinput(text, clr="default") -> None:
+def clrinput(text, clr="default",debug=True) -> None:
     '''
     take text and print with given color 
-    and also take input
+    and also take input.
+    Asks input only when debug is True
+    else returns None
     '''
+    if debug != True:
+        return
     clrprint(str(text), clr=clr, end='')
     return input()
 
