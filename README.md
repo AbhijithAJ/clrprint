@@ -81,11 +81,11 @@ clrhelp()  # to list out usage and available colors.
 ## License & copyright
 © Abhijith Boppe, Security analyst
 
-<a href="https://linkedin.com/in/abhijith-boppe" target="_blank">
+<a href="https://linkedin.com/in/abhijith-boppe" target="_blank" alt="LinkedIn"></a>
 
 © Dheeraj Kakkar, Software Developer
 
-<a href="https://linkedin.com/in/dheerajkakkar" target="_blank">
+<a href="https://linkedin.com/in/dheerajkakkar" target="_blank"></a>
 
 
 Licensed under the [MIT License](LICENSE)
