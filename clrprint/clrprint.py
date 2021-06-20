@@ -2,7 +2,7 @@ import sys
 if sys.platform == 'win32':
     from colorama import init # for windows powershell and cmd
     init()
-from termcolor import cprint  # for terminal
+from termcolor import cprint, colored  # for terminal
 
 try:
     # This will only work in IDLE, it won't work from a command prompt
@@ -83,4 +83,3 @@ def clrinput(text, clr="default"):
     '''
     clrprint(str(text), clr=clr, end='')
     return input()
-
