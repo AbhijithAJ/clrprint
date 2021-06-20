@@ -1,9 +1,9 @@
 <h1 align="center">
-  clrprint v0.1
+  clrprint v1.0
 <div align="center">
 
 [![Generic badge](https://img.shields.io/badge/Made_By-ABHIJITH_BOPPE-BLUE.svg)](https://www.linkedin.com/in/abhijith-boppe/)  
-[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/pypi_package-0.3.3-DARKGREEN.svg)](https://pypi.org/project/clrprint/) [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://github.com/AbhijithAJ/clrprint/blob/master/LICENSE) [![PayPal](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/abhijithboppes) 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/pypi_package-1.0-DARKGREEN.svg)](https://pypi.org/project/clrprint/) [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://github.com/AbhijithAJ/clrprint/blob/master/LICENSE) [![PayPal](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/abhijithboppes) 
 </div>
 
 
@@ -13,6 +13,7 @@
  - Work's on IDLE, windows powerShell, Linux terminal
  - Simply input() and print() with clrinput() and clrprint()
  - Basic colors only. red, green, yellow, blue, purple, and black/white (default)
+ - Flexible to print or take input only deman (on DEBUG)
 
 ---
 ## ABOUT
@@ -40,19 +41,21 @@ Example:
 
     clrprint('text1','text2',clr='red') 
     clrinput('text1',clr='r')  # single letter is enough to represent color.
+    clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4',clr=['r','y','g']) # prints 3 colors in same line
+    clrprint('ERROR:','error information','suggestions 1','suggestion2','suggestion3', clr=['r','y','g']) # print
 
 ## Screenshots
 Terminal:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot.png "clrprint")
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/terminal.png" width="100%">
 
 IDLE:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_idle.png "clrprint")
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/idle.png" width="100%">
 
 Powershell:
 
-![clrprint](https://github.com/AbhijithAJ/clrprint/blob/master/screenshot_powershell.png "clrprint")
+<img src="https://github.com/AbhijithAJ/clrprint/blob/master/powershell.png" width="100%">
 
 
 
@@ -71,11 +74,18 @@ clrprint('You enterd',userclr,clr=userclr) # print it in that color
 clrhelp()  # to list out usage and available colors.
 ```
 
+<br>
+<a href="https://www.buymeacoffee.com/abhijithboppe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" width="55%"></a>
 
 ---
 ## License & copyright
 © Abhijith Boppe, Security analyst
 
-linkedin.com/in/abhijith-boppe
+<a href="https://linkedin.com/in/abhijith-boppe" target="_blank">LinkedIn</a>
+
+© Dheeraj Kakkar, Software Developer
+
+<a href="https://linkedin.com/in/dheerajkakkar" target="_blank">LinkedIn</a>
+
 
 Licensed under the [MIT License](LICENSE)
