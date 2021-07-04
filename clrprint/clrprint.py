@@ -1,4 +1,5 @@
 import sys     
+import select 
 if sys.platform == 'win32':
     from colorama import init # for windows powershell and cmd
     init()
@@ -30,7 +31,7 @@ except AttributeError:
             "magenta":"magenta"}
 
     def myclrtxt(text,clr,end='\n'):
-        cprint(text, colormap[clr], attrs=['bold'], file=sys.stderr,end=end)
+        cprint(text, colormap[clr], attrs=['bold'],end=end)
     
 except Exception as a:
 	clrprint(a,clr='r')
@@ -129,6 +130,21 @@ def clrinput(text, clr="default",debug=True) -> None:
     '''
     if debug != True:
         return
-    clrprint(str(text), clr=clr, end='')
-    return input()
 
+    time_count = 10
+    clrprint(str(text), clr=clr, end='')
+
+    sys.stdout.flush()
+    timec = 0 
+    while timec < time_count:
+        inp = select.select([sys.stdin], [], [], 1)[0] 
+        if inp:
+            value = sys.stdin.readline().strip()
+            if value == '':
+                timec+=1
+                continue
+            else:
+                return value
+        timec+=1
+    clrprint("\nPlease provide input", clr='r', end='\n')
+    sys.exit(0)
