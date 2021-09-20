@@ -47,15 +47,15 @@ Example:
 ## Screenshots
 Terminal:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/terminal.png" width="100%">
+<img src="images/terminal.png" width="100%">
 
 IDLE:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/idle.png" width="100%">
+<img src="images/idle.png" width="100%">
 
 Powershell:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/powershell.png" width="100%">
+<img src="images/powershell.png" width="100%">
 
 
 
