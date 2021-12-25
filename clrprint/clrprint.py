@@ -129,7 +129,7 @@ def clrprint(*text, clr="default", end: str = "\n", sep: str = ' ', debug=True) 
         myclrtxt('', clr=clr, end=end)
 
 
-def clrinput(text, clr="default", debug=True) -> None:
+def clrinput(*text, clr="default", debug=True) -> None:
     '''
     take text and print with given color
     and also take input.
@@ -138,5 +138,5 @@ def clrinput(text, clr="default", debug=True) -> None:
     '''
     if not debug:
         return
-    clrprint(str(text), clr=clr, end='')
+    clrprint(*text, clr=clr, end='')
     return input()
