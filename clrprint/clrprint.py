@@ -1,78 +1,90 @@
-import sys     
+import sys
+
 if sys.platform == 'win32':
-    from colorama import init # for windows powershell and cmd
+    from colorama import init  # for windows powershell and cmd
     init()
+<<<<<<< HEAD
 from termcolor import cprint, colored  # for terminal
+=======
+from termcolor import cprint   # for terminal
+>>>>>>> 3c89fff0cf8b15870f07f347a5ad680e9eec3d03
 
 try:
     # This will only work in IDLE, it won't work from a command prompt
     shell_connect = sys.stdout.shell    # check if idle or terminal
 
-    colormap = {"red": ("COMMENT", "Red"),
-            "yellow": ("KEYWORD", "Light Red"),
-            "green": ("STRING", "Green"),
-            "blue": ("stdout", "Blue"),
-            "purple": ("BUILTIN", "Purple"),   #magenta
-            "magenta":("BUILTIN", "Purple"),
-            "default": ("SYNC", "Black")}
-    
-    def myclrtxt(text,clr,end='\n'):
+    colormap = {
+        "red": ("COMMENT", "Red"),
+        "yellow": ("KEYWORD", "Light Red"),
+        "green": ("STRING", "Green"),
+        "blue": ("stdout", "Blue"),
+        "purple": ("BUILTIN", "Purple"),  # magenta
+        "magenta": ("BUILTIN", "Purple"),
+        "default": ("SYNC", "Black")
+    }
+
+    def myclrtxt(text, clr, end='\n'):
         shell_connect.write(text+end, colormap[clr][0])
 
 except AttributeError:
     # This will only work linux terminal,win powershell, cmd
-    colormap = {"red":"red",
-            "yellow": "yellow",
-            "green": "green",
-            "blue": "blue",
-            "purple": "magenta",
-            "default": "white",
-            "magenta":"magenta"}
+    colormap = {
+        "red": "red",
+        "yellow": "yellow",
+        "green": "green",
+        "blue": "blue",
+        "purple": "magenta",
+        "default": "white",
+        "magenta": "magenta"
+    }
 
-    def myclrtxt(text,clr,end='\n'):
-        cprint(text, colormap[clr], attrs=['bold'], file=sys.stderr,end=end)
-    
+    def myclrtxt(text, clr, end='\n'):
+        cprint(text, colormap[clr], attrs=['bold'], file=sys.stderr, end=end)
+
 except Exception as a:
-	clrprint(a,clr='r')
+    clrprint(a, clr='r')
 
-def chkDatatypes(clr,sep,end):
-    if not isinstance(sep,str):
+
+def chkDatatypes(clr, sep, end):
+    if not isinstance(sep, str):
         raise Exception('sep must be string')
-    if not isinstance(end,str):
+    if not isinstance(end, str):
         raise Exception('end must be a string')
     def chkDatatypeOfClr(clr):
         for el in clr:
-            if not isinstance(el,str):
+            if not isinstance(el, str):
                 raise Exception('list must be contain only string type elements')
-    if isinstance(clr,list):
+    if isinstance(clr, list):
         chkDatatypeOfClr(clr)
-    elif not isinstance(clr,str):
+    elif not isinstance(clr, str):
         raise Exception("clr must be string or list with string elements")
+
 
 def chk_clr(clr):
     '''
     check if given clr or 1st char is available 
     '''
     clr = clr.strip().lower()
-    clr = clr if clr in colormap.keys() else clr[0]            # if not available/spelled wrong take 1st char of clr
-    if len(clr) == 1:           
-        clrs = [clrs[0] for clrs in colormap.keys()]           # get 1st chars of colors available in colormap
-        if clr in clrs:                                        # if given char is available, get the color via index
+    clr = clr if clr in colormap.keys() else clr[0]        # if not available/spelled wrong take 1st char of clr
+    if len(clr) == 1:
+        clrs = [clrs[0] for clrs in colormap.keys()]       # get 1st chars of colors available in colormap
+        if clr in clrs:                                    # if given char is available, get the color via index
             clr = tuple(colormap.keys())[clrs.index(clr)]
         else:
-            clr ="default"                                     # else default color
+            clr = "default"                                # else default color
     return clr
+
 
 def clrhelp() -> None:
     '''
     print available colors
     '''
-    clrprint("Colors available:",clr='default')
+    clrprint("Colors available:", clr='default')
     for clr in colormap:
-        clrprint('\t',clr,clr=clr)
+        clrprint('\t', clr, clr=clr)
     DEBUG = True
-    clrprint("How to use: ",clr='g')
-    usage ='''
+    clrprint("How to use: ", clr='g')
+    usage = '''
     It is as simple as using 'print' and 'input' functions with an 
     additional parameter 'clr'. single letter is enough to represent 
     color.
@@ -81,53 +93,54 @@ def clrhelp() -> None:
     replace 'input' with "clrinput"
     and pass your color with text
     '''.format()
-    clrprint(usage,clr='yellow')
+    clrprint(usage, clr='yellow')
     clrprint('Examples:')
-    clrprint("\tclrprint('your text',clr='green')",clr='g')
-    clrprint("\tclrinput('your text',clr='g')",clr='g')
-    clrprint("\n\tPrint","Multi","colors","in","single","line with:",clr=['r','y','g','b'])
-    clrprint("\t\tEx: clrprint('tex_clr1','tex_clr2',clr=['r','g'])",clr='g')
-    clrprint("\n\tPrint output only when debuging with debug param: ",clr='b')
-    clrprint("\t\tEx: clrprint('Error: ',clr='y',debug=True)",clr='g',debug=DEBUG) 
-    clrprint('\n\tTake user input on debug else take default value: ',clr='b') 
-    clrprint("\t\tEx: num = clrinput('Num: ',clr='y',debug=True) or default ",clr='g',debug=DEBUG) 
+    clrprint("\tclrprint('your text',clr='green')", clr='g')
+    clrprint("\tclrinput('your text',clr='g')", clr='g')
+    clrprint("\n\tPrint", "Multi", "colors", "in", "single", "line with:", clr=['r', 'y', 'g', 'b'])
+    clrprint("\t\tEx: clrprint('tex_clr1','tex_clr2',clr=['r','g'])", clr='g')
+    clrprint("\n\tPrint output only when debuging with debug param: ", clr='b')
+    clrprint("\t\tEx: clrprint('Error: ',clr='y',debug=True)", clr='g', debug=DEBUG)
+    clrprint('\n\tTake user input on debug else take default value: ', clr='b') 
+    clrprint("\t\tEx: num = clrinput('Num: ',clr='y',debug=True) or default ", clr='g', debug=DEBUG)
 
 
-def clrprint(*text, clr="default", end:str="\n",sep:str=' ',debug=True) -> None:
+def clrprint(*text, clr="default", end: str = "\n", sep: str = ' ', debug=True) -> None:
     '''
     take *text and print with given color/s
     'clr' can be str or a list with str elements.
     Prints outpu only when debug is True
     '''
-    if debug != True:
+    if not debug:
         return
-    chkDatatypes(clr,end,sep)
+    chkDatatypes(clr, end, sep)
     text = list(text)  # convert tuple to list to pop(0)
-    if isinstance(clr,list):
+    if isinstance(clr, list):
         for clr in (clr):
             try:
                 clr = chk_clr(clr)
-                txt = str(text.pop(0))+sep 
+                txt = str(text.pop(0)) + sep 
                 txt = txt if text else txt.rstrip(sep)
                 myclrtxt(txt, clr, end='')
-            except Exception as n:
+            except:
                 break
     if text:
         clr = chk_clr(clr)
-        text = [str(elem)for elem in text] # convert all elements in text(type-tuple) to string 
-        text = sep.join(text)          
+        text = [str(elem)for elem in text]  # convert all elements in text(type-tuple) to string 
+        text = sep.join(text)
         myclrtxt(text, clr, end)
     else:
-        myclrtxt('',clr=clr,end=end)
+        myclrtxt('', clr=clr, end=end)
 
-def clrinput(text, clr="default",debug=True) -> None:
+
+def clrinput(*text, clr="default", debug=True) -> None:
     '''
-    take text and print with given color 
+    take text and print with given color
     and also take input.
     Asks input only when debug is True
     else returns None
     '''
-    if debug != True:
+    if not debug:
         return
-    clrprint(str(text), clr=clr, end='')
+    clrprint(*text, clr=clr, end='')
     return input()

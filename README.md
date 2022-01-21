@@ -12,8 +12,8 @@
  - Colorful output 
  - Work's on IDLE, windows powerShell, Linux terminal
  - Simply input() and print() with clrinput() and clrprint()
- - Basic colors only. red, green, yellow, blue, purple, and black/white (default)
- - Flexible to print or take input only deman (on DEBUG)
+ - Basic colors only. Red, green, yellow, blue, purple, and black/white (default)
+ - Flexible to print or take input only on demand (on DEBUG)
 
 ---
 ## ABOUT
@@ -47,15 +47,15 @@ Example:
 ## Screenshots
 Terminal:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/terminal.png" width="100%">
+<img src="images/terminal.png" width="100%">
 
 IDLE:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/idle.png" width="100%">
+<img src="images/idle.png" width="100%">
 
 Powershell:
 
-<img src="https://github.com/AbhijithAJ/clrprint/blob/master/powershell.png" width="100%">
+<img src="images/powershell.png" width="100%">
 
 
 
@@ -75,7 +75,7 @@ clrhelp()  # to list out usage and available colors.
 ```
 
 <br>
-<a href="https://www.buymeacoffee.com/abhijithboppe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" width="55%"></a>
+<a href="https://www.buymeacoffee.com/abhijithboppe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" width="33%"></a>
 
 ---
 ## License & copyright
