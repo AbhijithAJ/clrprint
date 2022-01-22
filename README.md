@@ -1,5 +1,5 @@
 <h1 align="center">
-  clrprint v1.0
+  clrprint v2.0
 <div align="center">
 
 [![Generic badge](https://img.shields.io/badge/Made_By-ABHIJITH_BOPPE-BLUE.svg)](https://www.linkedin.com/in/abhijith-boppe/)  
