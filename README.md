@@ -41,13 +41,15 @@ There are 2 functions clrprint(), clrinput(). Just pass your data to the functio
 You can use clrhelp() to print out and see how to use it.
 
 Example:
+```python
+clrprint('text1','text2',clr='r')  # single letter is enough to represent color.
+clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4',clr='r,y,g') # prints 3 colors in same line
+clrprint('ERROR:','error information','suggestions 1','suggestion2','suggestion3', clr='r,y,g') # print
 
-    clrprint('text1','text2',clr='red') 
-    clrinput('text1',clr='r')  # single letter is enough to represent color.
-    clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4',clr=['r','y','g']) # prints 3 colors in same line
-    clrprint('ERROR:','error information','suggestions 1','suggestion2','suggestion3', clr=['r','y','g']) # print
+user_input = clrinput('text1',clr='r', timeout= 10) or "Choose Default"  # Take user input in 10 sec else Choose any Default Value
+```
 
-inputTimeout has been inspired from the work of <b><i>[WereCatf](https://github.com/WereCatf) </i> </b> from the project <b><i>[werecatf](https://github.com/werecatf/pytimedinput/) </i></b>
+input timeout feature has been inspired from the work of <b><i>[WereCatf](https://github.com/WereCatf) </i> </b> from the project <b><i>[werecatf](https://github.com/werecatf/pytimedinput/) </i></b>
 
 ## Screenshots
 Terminal:
