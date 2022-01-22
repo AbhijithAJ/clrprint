@@ -1,4 +1,53 @@
+'''
+        __                _       __ 
+  _____/ /________  _____(_)___  / /_
+ / ___/ / ___/ __ \/ ___/ / __ \/ __/
+/ /__/ / /  / /_/ / /  / / / / / /_  
+\___/_/_/  / .___/_/  /_/_/ /_/\__/  
+          /_/                        
+
+- Colorful output
+- Work's on IDLE, windows powerShell, Linux terminal
+- Simply input() and print() with clrinput() and clrprint()
+- Basic colors only. Red, green, yellow, blue, purple, and black/white (default)
+- Flexible to print or take input only on demand (on DEBUG)
+
+Colors available:
+         red
+         yellow
+         green
+         blue
+         purple
+         default
+         magenta
+
+How to use: 
+
+    It is as simple as using ,'print' and 'input' functions with an
+    additional parameter 'clr'. single letter is enough to represent
+    color.
+
+    Just replace 'print' with "clrprint",
+    replace 'input' with "clrinput"
+    and pass your texts and desired colors.
+
+    Pass a DEBUG parameter to print only on DEBUG mode
+
+    Pass timeout parameter to clrinput to take user input in desired time
+
+    Note: input timeout feature is not supported on IDLE.
+
+    Know more at https://github.com/AbhijithAJ/clrprint
+        
+DEVELOPED BY:
+    Abhijith Boppe
+    See more at https://bio.link/abhijithboppe
+    Support me: https://www.buymeacoffee.com/abhijithboppe
+    Thanks for using the module.
+
+'''
 import sys
+from inputTimeLimit.inputTimeLimit import timedInput
 if sys.platform == 'win32':
     from colorama import init  # for windows powershell and cmd this should be initialized
     init()  
@@ -25,18 +74,18 @@ except AttributeError:
     # This will only work linux terminal,win powershell, cmd
     colormap = {
         "red": "red",
-        "yellow": "yellow",
         "green": "green",
         "blue": "blue",
         "purple": "magenta",
         "default": "white",
-        "magenta": "magenta"
+        "magenta": "magenta",
+        "yellow": "yellow"
     }
     def _printColorText(text, clr):
         cprint(text, colormap[clr], attrs=['bold'], file=sys.stderr, end='')        
 
 except Exception as e:
-    clrprint('Unfortunate error: ' ,e, clr='r')
+    raise Exception('Unfortunate error: '+e)
 
 def _chkDatatypes(clr, sep, end):
     if not isinstance(sep, str):
@@ -101,9 +150,9 @@ def clrhelp():
 
     Just replace 'print' with "clrprint",
     replace 'input' with "clrinput"
-    and pass your texts and desired colors as shown .
+    and pass your texts and desired colors as shown.
     '''
-    clrprint(usage, clr='yellow')
+    clrprint(usage, clr='g')
     clrprint('Examples:', clr='p')
     clrprint("\tclrprint('your text', clr='green')")
     clrprint('\t\tyour text', clr='g')
@@ -111,10 +160,12 @@ def clrhelp():
     clrprint('\t\tEnter input: |', clr='y')
     clrprint("\n\tclrprint('multi','colors','in a line', clr='r,g,b')")
     clrprint("\t\tmulti", "colors", "in a line", clr='r,g,b')
-    clrprint("\n\tYou can user input/output only on debug with a debug param as shown: ", clr='p')
+    clrprint("\n\tYou can input/output only on debug with a debug param as shown: ", clr='p')
     clrprint("\t\tclrprint('Error: Some Error Message', clr='y',debug=True)")
-    clrprint("\t\tclrinput('Can I over write a file X? : ', clr='y', debug=True)")
-
+    clrprint("\t\tclrinput('Over write a file X? : ', clr='y', debug=True)")
+    clrprint("\n\tNon Blocking input or input timeout with: ", clr='p')
+    clrprint("\t\tclrinput(\"Over write a file X? (Choose in 10sec): \", clr='y', debug=True, timeout=10)")
+    clrprint("\t\tNote:", " input timeout is not supported on IDLE", clr='r,y')
 
 def clrprint(*text, clr="default", end: str = "\n", sep: str = ' ', debug=True):
     '''
@@ -130,23 +181,33 @@ def clrprint(*text, clr="default", end: str = "\n", sep: str = ' ', debug=True):
         for text_clr in texts_clrs:
             _printColorText(text_clr[0], clr=text_clr[1])
     
-def clrinput(*text, clr="default", debug=True):
+def clrinput(*text, clr="default", debug=True, timeout=0):
     '''
     take text and print with given color
-    and also take input.
+    and returns user input.
     Asks input only when debug is True
-    else returns None
+    else return. 
+    if timeout > 0 program waits for 
+    user input until timeout.
     '''
-    if not debug:
-        return
-    clrprint(*text, clr=clr)
+    if not debug: return
+    clrprint(*text, clr=clr, end='')
+    if timeout: return _clrinputTimeout(timeout)
     return input()
 
 #These only work for powershell, command prompt and Terminal but not for IDLE
 def clrit(*text, clr='default', end:str = "", sep: str = ' '):
+    '''This will return ASCII colord text.
+    '''
     if IDLE: raise Exception("clrit is not supported on IDLE")
     colored_string = ''
     texts_clrs = _textColor(*text, clr=clr, end=end, sep=sep)
     for text_clr in texts_clrs:
         colored_string += colored(text_clr[0], color=colormap[text_clr[1]] , attrs=['bold'])
     return colored_string
+
+def _clrinputTimeout(timeout):
+    '''Input timeout.
+    '''
+    if IDLE: raise Exception('Input timeout is not supported on IDLE')
+    return timedInput(timeout)[0]
