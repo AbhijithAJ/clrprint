@@ -47,7 +47,7 @@ DEVELOPED BY:
 
 '''
 import sys
-from inputTimeLimit.inputTimeLimit import timedInput
+from inputTimeLimit import timedInput
 if sys.platform == 'win32':
     from colorama import init  # for windows powershell and cmd this should be initialized
     init()  
