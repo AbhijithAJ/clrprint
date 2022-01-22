@@ -11,6 +11,7 @@
 - Simply input() and print() with clrinput() and clrprint()
 - Basic colors only. Red, green, yellow, blue, purple, and black/white (default)
 - Flexible to print or take input only on demand (on DEBUG)
+- User input timeout limit. (This is not supported on IDLE)
 
 Colors available:
          red
@@ -189,10 +190,13 @@ def clrinput(*text, clr="default", debug=True, timeout=0):
     else return. 
     if timeout > 0 program waits for 
     user input until timeout.
+    ontimeout returns None
     '''
     if not debug: return
     clrprint(*text, clr=clr, end='')
-    if timeout: return _clrinputTimeout(timeout)
+    if timeout: 
+        userInput = _clrinputTimeout(timeout)
+        return userInput if len(userInput)>0 else None
     return input()
 
 #These only work for powershell, command prompt and Terminal but not for IDLE

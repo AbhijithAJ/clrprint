@@ -13,7 +13,7 @@ setup(
     name='clrprint',
     license="MIT",
     description='''Print colorfull output in IDLE, powershell, and terminal. Supports on DEBUG feature and 
-    returns '' (empty string) if user input is not entered in given time. ''',
+    returns None if user input is not entered in given time. ''',
     version='v2.0',
     long_description_content_type='text/markdown',
     long_description=README,

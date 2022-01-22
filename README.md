@@ -14,11 +14,14 @@
  - Simply input() and print() with clrinput() and clrprint()
  - Basic colors only. Red, green, yellow, blue, purple, and black/white (default)
  - Flexible to print or take input only on demand (on DEBUG)
+ - User input timeout limit. (This is not supported on IDLE)
 
 ---
 ## ABOUT
 
 This clrprint is developed to print a colorful output. It has red, blue, green, yellow, purple and black/white (default) colors. It works on idle, windows power shell and terminal.
+
+With clrinput function, take user input prompting the text in color and returns  if there is no user input 
 
 It prints with default color if given color is not in list of colors
 
@@ -44,6 +47,8 @@ Example:
     clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4',clr=['r','y','g']) # prints 3 colors in same line
     clrprint('ERROR:','error information','suggestions 1','suggestion2','suggestion3', clr=['r','y','g']) # print
 
+inputTimeout has been inspired from the work of <b><i>[WereCatf](https://github.com/WereCatf) </i> </b> from the project <b><i>[werecatf](https://github.com/werecatf/pytimedinput/) </i></b>
+
 ## Screenshots
 Terminal:
 
@@ -66,10 +71,15 @@ Developed by Abhijith Boppe - linkedin.com/in/abhijith-boppe/
 '''
 from clrprint import *
 
-userclr = clrinput('Enter color: ',clr='green').strip()  # take a input color
+userclr = clrinput('Enter color: ',clr='green').strip()  # prompt color text while taking user input
 clrprint('You enterd',userclr,clr=userclr) # print it in that color
 
 # If color not available it print's with default color (white/black)
+
+# Input timeout (Works on terminal, cmd and powershell. Not supported on IDLE)
+continue_ = clrinput('Continue FUZZING? :',clr='p', timeout=15) or False # if no user input in 15, take False
+if continue_:
+  FUZZ()
 
 clrhelp()  # to list out usage and available colors.
 ```
