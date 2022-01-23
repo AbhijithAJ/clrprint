@@ -213,5 +213,7 @@ def clrit(*text, clr='default', end:str = "", sep: str = ' '):
 def _clrinputTimeout(timeout):
     '''Input timeout.
     '''
-    if IDLE: clrprint('-'*5,'Input timeout is not supported on IDLE','-'*5, clr='b,r,b')
+    if IDLE: 
+        clrprint('-'*5,'Input timeout is not supported on IDLE','-'*5, clr='b,r,b')
+        return input()
     return timedInput(timeout)[0]
