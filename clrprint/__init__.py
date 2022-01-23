@@ -1,1 +1,1 @@
-from clrprint.clrprint import clrprint, clrinput, clrhelp
+from clrprint.clrprint import clrprint, clrinput, clrit, clrhelp 
