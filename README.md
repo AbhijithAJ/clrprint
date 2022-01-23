@@ -35,7 +35,7 @@ pip install clrprint
 It is as easy as you use print() and input() in the python.
 Just one more parameter **clr** is added to represent color.
 
-There are 2 functions clrprint(), clrinput(). Just pass your text to the functions with your desired color
+There are 3 functions clrprint(), clrinput(), clrit().
 
 You can use clrhelp() to print out and see how to use it.
 
@@ -43,13 +43,16 @@ Example Code:
 ```python
 from clrprint import *
 
-clrprint('text1','text2',clr='r')  # single letter is enough to represent color.
-clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4',clr='r,y,g') # prints 3 colors in same line
+clrprint('text1','text2', clr='r')  # single letter is enough to represent color.
+clrprint('text1_clr1','text2_clr2','text3_clr3','text4_clr4', clr='r,y,g') # prints 3 colors in same line
 clrprint('ERROR:','error information','suggestions 1','suggestion2','suggestion3', clr='r,y,g') # print
 
 #Supported on terminal, command prompt and powershell 
-user_input = clrinput('text1',clr='r', timeout= 10) or "Choose Default"  # Take user input in 10 sec else Choose any Default Value
 colord_text = clrit('text1', 'text2', clr='r,g') # returns ASCII coloured text
+print(colord_text)
+user_input = clrinput('Choose yes/no?', clr='r', timeout=10) or "DEFAULT"  # Take user input in 10 sec else Choose any Default value
+print(user_input)
+
 ```
 
 The input timeout functionality was inspired by <b><i>[WereCatf](https://github.com/WereCatf) </i> </b> from the project <b><i>[werecatf](https://github.com/werecatf/pytimedinput/) </i></b>
