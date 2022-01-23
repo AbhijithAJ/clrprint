@@ -10,17 +10,17 @@
 </h1>
  
  - Colorful output 
- - Work's on IDLE, windows powerShell, Linux terminal
+ - Work's on IDLE, command prompt, windows powerShell, and terminal
  - Simply input() with clrinput() and print() with clrprint()
  - Basic colors only. Red, green, yellow, blue, purple, and black/white (default)
  - Flexible to print or take input only on demand (on DEBUG)
- - Timeout for user input. (This is supported only on interactive shell)
+ - User input timeout feature (This is supported only on interactive shell)
 ---
 ## ABOUT
 
-clrprint is developed to print a colorful output on idle, windows power shell and terminal. It has red, blue, green, yellow, purple and black/white (default) colors. 
+This **clrprint** is developed to print a colorful output on idle, windows power shell and terminal. It has red, blue, green, yellow, purple and black/white (default) colors. 
 
-clrinput has a timeout feature. It returns **None** if there is no user input in a given time.
+clrinput() includes a timeout feature that returns None if no user input is received within a certain amount of time.
 
 *It prints with default color if given color is not available.*
 
@@ -32,12 +32,14 @@ pip install clrprint
 
 **Usage**
 
-It is as easy as you use print() and input() in python.
-Argument **clr** to represent color, **debug** to print only when debug=True, and clrinput() takes timeout argument.
+It's as simple as using Python's print() and input() functions.
+
+Argument **clr** to represent color, **debug** to print only when debug=True are added.
+
+clrinput() takes **timeout** argument that returns None if no user input is received within a certain amount of time.
 
 *Note: **timeout** feature is not supported in IDLE. It is neglected by IDLE if it is passed*
 
-There are 3 functions clrprint(), clrinput(), clrit().
 You can use clrhelp() to print out and see how to use it.
 
 Example Code:
