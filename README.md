@@ -22,7 +22,7 @@ clrprint is developed to print a colorful output on idle, windows power shell an
 
 clrinput has a timeout feature. It returns **None** if there is no user input in a given time.
 
-*It prints with default color if given color is available.*
+*It prints with default color if given color is not available.*
 
 ### Installation
 You can install clrprint by running the following command
@@ -32,11 +32,12 @@ pip install clrprint
 
 **Usage**
 
-It is as easy as you use print() and input() in the python.
-Just one more parameter **clr** is added to represent color.
+It is as easy as you use print() and input() in python.
+Argument **clr** to represent color, **debug** to print only when debug=True, and clrinput() takes timeout argument.
+
+*Note: **timeout** feature is not supported in IDLE. It is neglected by IDLE if it is passed*
 
 There are 3 functions clrprint(), clrinput(), clrit().
-
 You can use clrhelp() to print out and see how to use it.
 
 Example Code:
