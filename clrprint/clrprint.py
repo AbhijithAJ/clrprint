@@ -90,13 +90,11 @@ except Exception as e:
 
 def _chkDatatypes(clr, sep, end):
     if not isinstance(sep, str):
-        raise Exception('sep must be string')
+        raise Exception('"sep" must be string')
     if not isinstance(end, str):
-        raise Exception('end must be a string')
-    if not isinstance(clr, str):
-        raise Exception('clr must be string with single color or multiple colors separeted by ","')
-    elif not isinstance(clr, str):
-        raise Exception("clr must be string or list with string elements")
+        raise Exception('"end" must be a string')
+    if not isinstance(clr, str) and not isinstance(clr, list):
+        raise Exception('"clr" must be string with single color or multiple colors separeted by "," or a list of colors')
 
 def _chk_clr(clr):
     '''
@@ -119,8 +117,10 @@ def _textColor(*text, clr, end, sep):
     _chkDatatypes(clr, end, sep)
     text = list(text)  # convert tuple to list to pop elements
     texts_clrs = []
+    if isinstance(clr, list):
+        clr = ','.join(clr)
     if ',' in clr:     # check for multi colors
-        for clr in clr.split(','):   # separeate colors
+        for clr in clr.strip().split(','):   # separeate colors
             try:
                 clr = _chk_clr(clr)   # get the actual color
                 txt = str(text.pop(0)) + sep     # pop each element for the color 
@@ -193,6 +193,10 @@ def clrinput(*text, clr="default", debug=True, timeout=0):
     ontimeout returns None
     '''
     if not debug: return
+    if IDLE: 
+        clrprint('-'*5,'timeout feature is not supported on IDLE. Please enter your input.','-'*5, clr='b,r,b')
+        clrprint(*text, clr=clr, end='')
+        return input()
     clrprint(*text, clr=clr, end='')
     if timeout: 
         userInput = _clrinputTimeout(timeout)
@@ -203,7 +207,8 @@ def clrinput(*text, clr="default", debug=True, timeout=0):
 def clrit(*text, clr='default', end:str = "", sep: str = ' '):
     '''This will return ASCII colord text.
     '''
-    if IDLE: raise Exception("clrit is not supported on IDLE")
+    if IDLE: 
+        clrprint('-'*5,'clrit feature is not supported on IDLE because it doesnot support','-'*5, clr='b,r,b')
     colored_string = ''
     texts_clrs = _textColor(*text, clr=clr, end=end, sep=sep)
     for text_clr in texts_clrs:
@@ -213,7 +218,4 @@ def clrit(*text, clr='default', end:str = "", sep: str = ' '):
 def _clrinputTimeout(timeout):
     '''Input timeout.
     '''
-    if IDLE: 
-        clrprint('-'*5,'Input timeout is not supported on IDLE','-'*5, clr='b,r,b')
-        return input()
     return timedInput(timeout)[0]
