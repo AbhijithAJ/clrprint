@@ -208,7 +208,7 @@ def clrit(*text, clr='default', end:str = "", sep: str = ' '):
     '''This will return ASCII colord text.
     '''
     if IDLE: 
-        clrprint('-'*5,'clrit feature is not supported on IDLE because it doesnot support','-'*5, clr='b,r,b')
+        raise Exception('-'*5,'clrit feature is not supported on IDLE','-'*5, clr='b,r,b')
     colored_string = ''
     texts_clrs = _textColor(*text, clr=clr, end=end, sep=sep)
     for text_clr in texts_clrs:
