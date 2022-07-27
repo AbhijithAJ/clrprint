@@ -36,7 +36,7 @@ It's as simple as using Python's print() and input() functions.
 
 Argument **clr** to represent color, **debug** to print only when debug=True are added.
 
-clrinput() takes **timeout** argument that returns None if no user input is received within a certain amount of time.
+clrinput() takes **timeout** argument that returns None if no user input is not received within a certain amount of time.
 
 *Note: **timeout** feature is not supported in IDLE. It is neglected by IDLE if it is passed*
 
