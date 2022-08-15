@@ -194,7 +194,7 @@ def clrinput(*text, clr="default", debug=True, timeout=0):
     '''
     if not debug: return
     if IDLE: 
-        clrprint('-'*5,'timeout feature is not supported on IDLE. Please enter your input.','-'*5, clr='b,r,b')
+        if timeout!=0: clrprint('-'*5,'timeout feature is not supported on IDLE. Please enter your input.','-'*5, clr='b,r,b')
         clrprint(*text, clr=clr, end='')
         return input()
     clrprint(*text, clr=clr, end='')
