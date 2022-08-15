@@ -87,7 +87,7 @@ clrprint('You enterd', userclr,clr=userclr) # print it in that color
 
 # If color not available it print's with default color (white/black)
 
-# Input timeout and clrit (Works on terminal, cmd and powershell. Not supported on IDLE)
+# Input timeout and clrit (Works on terminal, cmd and powershell. Not supported on IDLE).
 continue_ = clrinput('Continue FUZZING? :',clr='p', timeout=15) or False # if no user input in 15, take False
 if continue_:
   FUZZ()
