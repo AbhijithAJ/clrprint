@@ -50,7 +50,7 @@ DEVELOPED BY:
 import sys
 from .inputTimeLimit import timedInput
 if sys.platform == 'win32':
-    from colorama import init  # for windows powershell and cmd this should be initialized
+    from colorama import init  # for windows powershell and cmd.
     init()  
 from termcolor import colored, cprint   # for terminal
 
